@@ -9,9 +9,6 @@ library(ggiraph)
 library(scales)
 library(countrycode)
 
-# Font management
-library(gdtools)
-register_gfont("Atkinson Hyperlegible")
 
 # Load datasets
 jn_df <- readr::read_csv("data/jn_country_stats_all.csv.gz") |>
@@ -123,7 +120,16 @@ sorted_publishers <- c("All" = "All", setNames(publisher_counts$esac_publisher, 
 
 # Define UI for application
 ui <- page_sidebar(
-  theme = bs_theme(base_font = font_google("Atkinson Hyperlegible")),
+  theme = bs_theme(base_font = "Atkinson Hyperlegible") |>
+    bs_add_rules(
+      "@font-face {
+           font-family: Atkinson Hyperlegible;
+           src: url('fonts/AtkinsonHyperlegible-Regular.ttf');
+           font-weight: 400;
+           font-style: normal;
+           font-display: swap;
+        }"
+    ),
   padding = 0,
   fillable = FALSE,
     title = "Replication Dashboard: Hybrid Open Access in Transformative Agreements",
