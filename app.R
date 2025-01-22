@@ -74,7 +74,8 @@ country_scatter_ggplot <- function(.data, x, y, log_scale = FALSE, selected_coun
       data = .data |>
         filter(highlight == "selected"),  
       aes(label = country_code),
-      box.padding = 0.3
+      box.padding = 0.3,
+      family = "Atkinson Hyperlegible"
     ) +
     geom_abline() +
     theme_minimal(base_family = "Atkinson Hyperlegible") +
