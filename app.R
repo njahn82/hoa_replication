@@ -240,9 +240,9 @@ server <- function(input, output, session) {
         wos_corresponding_oa_prop = wos_oa_corresponding_author_articles / wos_corresponding_author_articles,
         wos_corresponding_ta_oa_prop = wos_ta_oa_corresponding_author_articles / wos_corresponding_author_articles,
         scp_first_oa_prop = scp_oa_first_author_articles / scp_first_author_articles,
-        scp_first_ta_oa_prop = scp_oa_first_author_articles / scp_first_author_articles,
+        scp_first_ta_oa_prop = scp_ta_oa_first_author_articles / scp_first_author_articles,
         scp_corresponding_oa_prop = scp_oa_corresponding_author_articles / scp_corresponding_author_articles,
-        scp_corresponding_ta_oa_prop = scp_oa_corresponding_author_articles / scp_corresponding_author_articles
+        scp_corresponding_ta_oa_prop = scp_ta_oa_corresponding_author_articles / scp_corresponding_author_articles
       ) |>
       filter(hoad_articles >= min_articles_threshold, !is.na(country_code))
     
@@ -296,3 +296,5 @@ server <- function(input, output, session) {
 
 # Run the application 
 shinyApp(ui = ui, server = server)
+
+## france -> year long delay: https://www.science.org/content/article/elsevier-deal-france-disappoints-open-access-advocates
